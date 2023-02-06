@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">hilttestproject</string>
+
+    <string name="error_password_blank">Password is blank</string>
+    <string name="error_password_short">Password is too short</string>
+    <string name="error_password_long">Password is too long</string>
+    <string name="error_password_not_alphanumeric">Password is can only be alphanumeric</string>
+    <string name="error_email_blank">Email is blank</string>
+    <string name="error_email_not_email_pattern">Not a valid email</string>
+    <string name="user_not_found">User not found</string>
+    <string name="ok">OK</string>
+    <string name="error_title">Error</string>
+    <string name="welcome_message">Welcome, %s</string>
+    <string name="login_status_checking">Status: Checking…</string>
+    <string name="login_status_false">Status: User not logged in</string>
+    <string name="login_status_success">Status: User logged in</string>
+    <string name="test_value_false">Test value FALSE</string>
+    <string name="test_value_true">Test value TRUE</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="error_passwords_dont_match">Passwords don\'t match</string>
+    <string name="error_emails_dont_match">Emails don\'t match</string>
+    <string name="email_hint">Email</string>
+    <string name="login">Login</string>
+    <string name="register">register</string>
+    <string name="error_email_in_use">Email in use</string>
+    <string name="title_login">Login</string>
+    <string name="appwidget_text">--</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="action">Action!</string>
+</resources>
