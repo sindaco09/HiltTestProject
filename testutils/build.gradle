@@ -12,7 +12,6 @@ android {
         targetSdk 32
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -81,7 +80,7 @@ dependencies {
     // Junit
     api "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 
-//    api "androidx.work:work-testing:$work_version"
+    api "androidx.work:work-testing:$work_version"
 
     api 'androidx.test.uiautomator:uiautomator:2.2.0'
 }
