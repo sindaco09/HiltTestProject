@@ -70,7 +70,7 @@ class LandingActivity : BaseActivity<ActivityLandingBinding>() {
         startActivity(Intent(this, SignUpParentActivity::class.java))
 
     private fun goToLoginScreen() =
-        startActivity(Intent(this,LoginActivity::class.java))
+        startActivity(Intent(this, LoginActivity::class.java))
 
     private fun goToHiltLoginActivity() =
         startActivity(Intent().setClassName(packageName,"com.indaco.login.ui.screens.login.hilt_login.HiltLoginActivity"))

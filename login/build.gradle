@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+}
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 21
+        testInstrumentationRunner = "com.indaco.testutils.hilt.HiltTestRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    packagingOptions {
+        exclude "**/attach_hotspot_windows.dll"
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/licenses/**'
+        exclude 'META-INF/LICENSE'
+    }
+}
+
+dependencies {
+    implementation project(":app")
+    androidTestImplementation project(":testutils")
+
+    // Core - Uncategorized
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+    implementation "androidx.core:core-ktx:$ktx_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    implementation "com.google.android.material:material:$google_material_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+}
