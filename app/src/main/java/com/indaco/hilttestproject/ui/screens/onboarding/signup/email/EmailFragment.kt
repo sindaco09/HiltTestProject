@@ -7,14 +7,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.activityViewModels
 import com.indaco.hilttestproject.R
 import com.indaco.hilttestproject.databinding.FragmentEmailBinding
-import com.indaco.hilttestproject.ui.base.BaseFragment
+import com.indaco.mylibrary.ui.base.BaseFragment
 import com.indaco.hilttestproject.ui.screens.onboarding.signup.SignUpViewModel
 import com.indaco.hilttestproject.util.Validator
 import com.indaco.hilttestproject.util.Validator.inputIsValid
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class EmailFragment: BaseFragment<FragmentEmailBinding>(R.layout.fragment_email) {
+class EmailFragment: com.indaco.mylibrary.ui.base.BaseFragment<FragmentEmailBinding>(R.layout.fragment_email) {
 
     private val viewModel: SignUpViewModel by activityViewModels()
 

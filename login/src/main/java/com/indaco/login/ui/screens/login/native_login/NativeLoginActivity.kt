@@ -6,9 +6,9 @@ import android.text.TextUtils
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.ui.base.BaseActivity
 import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
 import com.indaco.login.databinding.ActivityNativeLoginBinding
+import com.indaco.mylibrary.ui.base.BaseActivity
 
 class NativeLoginActivity : BaseActivity<ActivityNativeLoginBinding>() {
 

@@ -6,8 +6,8 @@ import androidx.activity.viewModels
 import com.indaco.hilttestproject.R
 import com.indaco.hilttestproject.data.model.User
 import com.indaco.hilttestproject.databinding.ActivityWelcomeBinding
-import com.indaco.hilttestproject.ui.base.BaseActivity
 import com.indaco.hilttestproject.ui.screens.onboarding.landing.LandingActivity
+import com.indaco.mylibrary.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 /*

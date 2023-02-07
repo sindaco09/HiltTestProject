@@ -16,3 +16,4 @@ rootProject.name = "HiltTestProject"
 include ':app'
 include ':testutils'
 include ':login'
+include ':mylibrary'

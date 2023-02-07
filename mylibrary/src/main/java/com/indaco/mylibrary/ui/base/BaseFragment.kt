@@ -1,4 +1,4 @@
-package com.indaco.hilttestproject.ui.base
+package com.indaco.mylibrary.ui.base
 
 import android.app.Activity
 import android.view.inputmethod.InputMethodManager

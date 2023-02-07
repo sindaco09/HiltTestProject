@@ -5,9 +5,8 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.activityViewModels
 import com.indaco.hilttestproject.R
-import com.indaco.hilttestproject.core.espresso.TestCountingIdlingResource
 import com.indaco.hilttestproject.databinding.FragmentPasswordBinding
-import com.indaco.hilttestproject.ui.base.BaseFragment
+import com.indaco.mylibrary.ui.base.BaseFragment
 import com.indaco.hilttestproject.ui.screens.onboarding.signup.SignUpViewModel
 import com.indaco.hilttestproject.util.Validator
 import com.indaco.hilttestproject.util.Validator.inputIsValid
@@ -15,7 +14,7 @@ import com.indaco.hilttestproject.util.Validator.matches
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PasswordFragment: BaseFragment<FragmentPasswordBinding>(R.layout.fragment_password) {
+class PasswordFragment: com.indaco.mylibrary.ui.base.BaseFragment<FragmentPasswordBinding>(R.layout.fragment_password) {
 
     private val viewModel: SignUpViewModel by activityViewModels()
 

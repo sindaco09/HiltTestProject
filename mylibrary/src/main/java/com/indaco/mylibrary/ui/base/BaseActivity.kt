@@ -1,4 +1,4 @@
-package com.indaco.hilttestproject.ui.base
+package com.indaco.mylibrary.ui.base
 
 import android.app.Activity
 import android.view.inputmethod.InputMethodManager
@@ -19,5 +19,4 @@ abstract class BaseActivity<B: ViewBinding> : AppCompatActivity() {
         val imm: InputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         currentFocus?.let { imm.hideSoftInputFromWindow(it.windowToken, 0) }
     }
-
 }

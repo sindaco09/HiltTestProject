@@ -61,6 +61,7 @@ android {
 }
 
 dependencies {
+    api project (':mylibrary')
     androidTestImplementation project(":testutils")
     testImplementation project(":testutils")
 

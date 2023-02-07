@@ -8,10 +8,10 @@ import androidx.appcompat.app.AlertDialog
 import com.indaco.hilttestproject.R
 import com.indaco.hilttestproject.core.hilt.viewmodel.ViewModelFactory
 import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.ui.base.BaseActivity
 import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
 import com.indaco.login.databinding.ActivityHiltLoginBinding
 import com.indaco.login.di.Injector
+import com.indaco.mylibrary.ui.base.BaseActivity
 import javax.inject.Inject
 
 /*
