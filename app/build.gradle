@@ -26,6 +26,12 @@ android {
         }
     }
 
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/INDEX.LIST'
@@ -55,6 +61,7 @@ android {
 
 dependencies {
     androidTestImplementation project(":testutils")
+    testImplementation project(":testutils")
 
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
@@ -93,4 +100,7 @@ dependencies {
     // -- Testing --
     // Espresso
     implementation "androidx.test.espresso:espresso-idling-resource:$espresso_version"
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.9.2'
 }
