@@ -1,7 +1,7 @@
 package com.indaco.login.di
 
-import com.indaco.hilttestproject.core.hilt.dependencies.AppDependencies
 import com.indaco.login.ui.screens.login.hilt_login.HiltLoginActivity
+import com.indaco.mylibrary.di.hilt.dependencies.AppDependencies
 import dagger.Component
 import javax.inject.Singleton
 

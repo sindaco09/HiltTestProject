@@ -1,14 +1,12 @@
 package com.indaco.hilttestproject.ui.screens.onboarding
 
 import android.widget.TextView
-import com.indaco.hilttestproject.core.hilt.modules.storage.CacheModule
-import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.data.storage.cache.UserCache
-import com.indaco.hilttestproject.ui.screens.onboarding.landing.LandingActivity
+import com.indaco.mylibrary.di.hilt.modules.storage.CacheModule
+import com.indaco.mylibrary.data.storage.cache.UserCache
+import com.indaco.hilttestproject.ui.screens.main.landing.LandingActivity
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.UninstallModules
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -35,7 +33,7 @@ class LandingActivityRoboUnitTest {
 
             val activity = controller.get()
             val tv: TextView = activity.findViewById(R.id.test_value)
-            assertTrue { tv.text == activity.getString(R.string.test_value_true) }
+            assertTrue { tv.text == activity.getString(BaseString.test_value_true) }
         }
     }
 
@@ -47,8 +45,8 @@ class LandingActivityRoboUnitTest {
 
             val activity = controller.get()
             val tv: TextView = activity.findViewById(R.id.test_value)
-            assertTrue { tv.text == activity.getString(R.string.test_value_false) }
-            assertFalse { tv.text == activity.getString(R.string.test_value_true) }
+            assertTrue { tv.text == activity.getString(BaseString.test_value_false) }
+            assertFalse { tv.text == activity.getString(BaseString.test_value_true) }
         }
     }
 }

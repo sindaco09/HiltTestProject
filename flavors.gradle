@@ -1,0 +1,19 @@
+ext.flavorConfig = {
+
+    flavorDimensions "default"
+
+    productFlavors {
+        dev {
+            dimension "default"
+            resValue "string", "app_name", "HiltTestProject Dev"
+            buildConfigField("boolean", "isProd", "false")
+
+        }
+
+        prod {
+            dimension "default"
+            resValue "string", "app_name", "HiltTestProject"
+            buildConfigField("boolean", "isProd", "true")
+        }
+    }
+}

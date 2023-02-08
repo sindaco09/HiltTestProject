@@ -10,10 +10,10 @@ import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth
-import com.indaco.hilttestproject.core.espresso.TestCountingIdlingResource
+import com.indaco.mylibrary.di.espresso.TestCountingIdlingResource
 import com.indaco.testutils.hilt.lazyActivityScenarioRule
-import com.indaco.hilttestproject.core.hilt.modules.storage.CacheModule
-import com.indaco.hilttestproject.data.storage.cache.UserCache
+import com.indaco.mylibrary.di.hilt.modules.storage.CacheModule
+import com.indaco.mylibrary.data.storage.cache.UserCache
 import com.indaco.hilttestproject.ui.screens.onboarding.signup.email.EmailFragment
 import com.indaco.hilttestproject.ui.screens.onboarding.signup.password.PasswordFragment
 import com.indaco.testutils.utils.Const

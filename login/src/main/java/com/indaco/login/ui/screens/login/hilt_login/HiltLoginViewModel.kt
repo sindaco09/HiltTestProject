@@ -5,11 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indaco.hilttestproject.core.hilt.IODispatcher
-import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.data.repositories.UserRepository
+import com.indaco.mylibrary.di.IODispatcher
+import com.indaco.mylibrary.data.model.User
+import com.indaco.mylibrary.data.repositories.UserRepository
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

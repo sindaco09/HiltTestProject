@@ -1,23 +1,19 @@
 package com.indaco.hilttestproject.ui.screens.onboarding.landing
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import androidx.test.filters.SmallTest
 import com.indaco.hilttestproject.R
-import com.indaco.hilttestproject.core.hilt.modules.storage.CacheModule
-import com.indaco.hilttestproject.core.hilt.modules.storage.components.SharedPreferencesModule
-import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.data.storage.cache.UserCache
-import com.indaco.hilttestproject.data.storage.cache.UserCache.Companion.KEY_CURRENT_USER
+import com.indaco.hilttestproject.ui.screens.main.landing.LandingActivity
+import com.indaco.mylibrary.di.hilt.modules.storage.CacheModule
+import com.indaco.mylibrary.data.model.User
+import com.indaco.mylibrary.data.storage.cache.UserCache
 import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
 import com.indaco.testutils.hilt.lazyActivityScenarioRule
 import com.indaco.testutils.utils.Const.EMAIL_VALID
-import com.indaco.testutils.utils.MockSharedPrefsUtil.getMockString
 import dagger.hilt.android.testing.BindValue
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -74,7 +70,7 @@ class LandingActivityAndroidTest {
         launchHiltActivityWithMocks { every { mockUserCache.testValue } returns true }
 
         scenarioRule.getScenario().onActivity {
-            assertEquals(expected = it.getString(R.string.test_value_true),
+            assertEquals(expected = it.getString(BaseString.test_value_true),
                 actual = it.binding.testValue.text.toString())
         }
     }
@@ -84,7 +80,7 @@ class LandingActivityAndroidTest {
         launchHiltActivityWithMocks { every { mockUserCache.testValue } returns false }
 
         scenarioRule.getScenario().onActivity {
-            assertEquals(expected = it.getString(R.string.test_value_false),
+            assertEquals(expected = it.getString(BaseString.test_value_false),
                 actual = it.binding.testValue.text.toString())
         }
     }
@@ -95,7 +91,7 @@ class LandingActivityAndroidTest {
 
         // Can access bindings via scenario
         scenarioRule.getScenario().onActivity {
-            assertEquals(expected = it.getString(R.string.login_status_false),
+            assertEquals(expected = it.getString(BaseString.login_status_false),
                 actual = it.binding.loginStatus.text.toString())
         }
     }
@@ -105,7 +101,7 @@ class LandingActivityAndroidTest {
         launchHiltActivityWithMocks { every { mockUserCache.currentUser } returns User(EMAIL_VALID) }
 
         scenarioRule.getScenario().onActivity {
-            assertEquals(expected = it.getString(R.string.login_status_success),
+            assertEquals(expected = it.getString(BaseString.login_status_success),
                 actual = it.binding.loginStatus.text.toString())
         }
     }

@@ -9,7 +9,7 @@ import androidx.fragment.app.commit
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.indaco.hilttestproject.data.model.User
+import com.indaco.mylibrary.data.model.User
 import com.indaco.hilttestproject.databinding.ActivitySignUpParentBinding
 import com.indaco.hilttestproject.ui.screens.onboarding.signup.email.EmailFragment
 import com.indaco.hilttestproject.ui.screens.onboarding.signup.password.PasswordFragment

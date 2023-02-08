@@ -1,8 +1,8 @@
 package com.indaco.hilttestproject.ui.screens.onboarding
 
 import android.content.Intent
-import com.indaco.hilttestproject.ui.screens.onboarding.landing.LandingActivity
-import com.indaco.hilttestproject.ui.screens.onboarding.launcher.LauncherActivity
+import com.indaco.hilttestproject.ui.screens.main.landing.LandingActivity
+import com.indaco.hilttestproject.ui.screens.main.launcher.LauncherActivity
 import com.indaco.hilttestproject.ui.screens.onboarding.login.LoginActivity
 import junit.framework.Assert.assertEquals
 import org.junit.Before

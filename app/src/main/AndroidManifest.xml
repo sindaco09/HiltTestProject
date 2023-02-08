@@ -14,7 +14,7 @@
         android:theme="@style/Theme.HiltTestProject">
         <activity android:name=".ui.screens.onboarding.signup.SignUpParentActivity" />
         <activity
-            android:name=".ui.screens.onboarding.launcher.LauncherActivity"
+            android:name=".ui.screens.main.launcher.LauncherActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".ui.screens.onboarding.login.LoginActivity" />
         <activity android:name=".ui.screens.onboarding.welcome.WelcomeActivity" />
-        <activity android:name=".ui.screens.onboarding.landing.LandingActivity" />
+        <activity android:name=".ui.screens.main.landing.LandingActivity" />
     </application>
 
 </manifest>

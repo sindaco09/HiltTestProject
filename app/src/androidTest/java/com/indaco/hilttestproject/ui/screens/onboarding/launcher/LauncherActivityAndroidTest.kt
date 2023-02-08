@@ -5,7 +5,8 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.Intents.intended
 import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
-import com.indaco.hilttestproject.ui.screens.onboarding.landing.LandingActivity
+import com.indaco.hilttestproject.ui.screens.main.launcher.LauncherActivity
+import com.indaco.hilttestproject.ui.screens.main.landing.LandingActivity
 import com.indaco.testutils.hilt.lazyActivityScenarioRule
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

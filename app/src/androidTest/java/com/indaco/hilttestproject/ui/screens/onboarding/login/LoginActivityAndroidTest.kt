@@ -13,9 +13,9 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth
 import com.indaco.hilttestproject.R
-import com.indaco.hilttestproject.core.hilt.modules.storage.CacheModule
-import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.data.storage.cache.UserCache
+import com.indaco.mylibrary.di.hilt.modules.storage.CacheModule
+import com.indaco.mylibrary.data.model.User
+import com.indaco.mylibrary.data.storage.cache.UserCache
 import com.indaco.testutils.hilt.lazyActivityScenarioRule
 import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
 import com.indaco.testutils.utils.Const.EMAIL_VALID
@@ -78,7 +78,7 @@ class LoginActivityAndroidTest {
                 submit.performClick()
 
                 Truth.assertThat(passwordLayout.error.toString())
-                    .isEqualTo(it.getString(R.string.error_password_blank))
+                    .isEqualTo(it.getString(BaseString.error_password_blank))
             }
         }
     }
@@ -100,7 +100,7 @@ class LoginActivityAndroidTest {
 
         // Check if AlertDialog popped up, this looks for a view with the string provided first
         // then checks if it is a dialog and that it is displayed. good for anonymous objects
-        onView(withText(R.string.user_not_found))
+        onView(withText(BaseString.user_not_found))
             .inRoot(isDialog())
             .check(matches(isDisplayed()))
 

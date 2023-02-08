@@ -24,10 +24,10 @@ import kotlin.test.assertEquals
 class PasswordAndroidTest {
 
     // Represent the associated error with the entry: Pair<Entry, Error?>
-    private val BLANK_PASSWORD = Pair(Const.BLANK, R.string.error_password_blank)
-    private val SHORT_PASSWORD = Pair(Const.PASSWORD_SHORT, R.string.error_password_short)
-    private val LONG_PASSWORD = Pair(Const.PASSWORD_LONG, R.string.error_password_long)
-    private val INVALID_PASSWORD = Pair(Const.PASSWORD_INVALID, R.string.error_password_not_alphanumeric)
+    private val BLANK_PASSWORD = Pair(Const.BLANK, BaseString.error_password_blank)
+    private val SHORT_PASSWORD = Pair(Const.PASSWORD_SHORT, BaseString.error_password_short)
+    private val LONG_PASSWORD = Pair(Const.PASSWORD_LONG, BaseString.error_password_long)
+    private val INVALID_PASSWORD = Pair(Const.PASSWORD_INVALID, BaseString.error_password_not_alphanumeric)
     private val VALID_PASSWORD = Pair(Const.PASSWORD_VALID, null)
 
     // allows access to values in res folder

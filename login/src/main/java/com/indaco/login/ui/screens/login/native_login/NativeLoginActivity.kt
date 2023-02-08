@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.text.TextUtils
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
+import com.indaco.mylibrary.data.model.User
 import com.indaco.login.databinding.ActivityNativeLoginBinding
 import com.indaco.mylibrary.ui.base.BaseActivity
+import com.indaco.mylibrary.util.BaseString
 
 class NativeLoginActivity : BaseActivity<ActivityNativeLoginBinding>() {
 
@@ -50,8 +50,8 @@ class NativeLoginActivity : BaseActivity<ActivityNativeLoginBinding>() {
 
     private fun isEmailEntryValid(email: String?): Boolean {
         val error =  when {
-            email.isNullOrBlank() -> getString(com.indaco.hilttestproject.R.string.error_email_blank)
-            email.isEmailInvalid() -> getString(com.indaco.hilttestproject.R.string.error_email_not_email_pattern)
+            email.isNullOrBlank() -> getString(BaseString.error_email_blank)
+            email.isEmailInvalid() -> getString(BaseString.error_email_not_email_pattern)
             else ->  null
         }
         binding.emailLayout.error = error
@@ -64,10 +64,10 @@ class NativeLoginActivity : BaseActivity<ActivityNativeLoginBinding>() {
 
     private fun isPasswordValid(password: String?): Boolean {
         val error =  when {
-            password.isNullOrBlank() -> getString(com.indaco.hilttestproject.R.string.error_password_blank)
-            password.length < MIN -> getString(com.indaco.hilttestproject.R.string.error_password_short)
-            password.length > MAX -> getString(com.indaco.hilttestproject.R.string.error_password_long)
-            password.any { !it.isLetterOrDigit() } -> getString(com.indaco.hilttestproject.R.string.error_password_not_alphanumeric)
+            password.isNullOrBlank() -> getString(BaseString.error_password_blank)
+            password.length < MIN -> getString(BaseString.error_password_short)
+            password.length > MAX -> getString(BaseString.error_password_long)
+            password.any { !it.isLetterOrDigit() } -> getString(BaseString.error_password_not_alphanumeric)
             else ->  null
         }
         binding.passwordLayout.error = error
@@ -81,7 +81,8 @@ class NativeLoginActivity : BaseActivity<ActivityNativeLoginBinding>() {
     private fun observeData() {
         viewModel.loginResult.observe(this) {
             if (it != null)
-                goToMainScreen(it)
+                binding.result.text = it.email
+//                goToMainScreen(it)
             else
                 showError()
         }
@@ -89,12 +90,12 @@ class NativeLoginActivity : BaseActivity<ActivityNativeLoginBinding>() {
 
     private fun showError() {
         AlertDialog.Builder(this)
-            .setTitle(getString(com.indaco.hilttestproject.R.string.error_title))
-            .setMessage(getString(com.indaco.hilttestproject.R.string.user_not_found))
-            .setPositiveButton(getString(com.indaco.hilttestproject.R.string.ok), null)
+            .setTitle(getString(BaseString.error_title))
+            .setMessage(getString(BaseString.user_not_found))
+            .setPositiveButton(getString(BaseString.ok), null)
             .show()
     }
 
-    private fun goToMainScreen(user: User) =
-        startActivity(Intent(this, WelcomeActivity::class.java).putExtra(User.KEY, user))
+//    private fun goToMainScreen(user: User) =
+//        startActivity(Intent(this, WelcomeActivity::class.java).putExtra(User.KEY, user))
 }

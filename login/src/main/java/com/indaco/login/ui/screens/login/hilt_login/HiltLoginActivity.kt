@@ -6,12 +6,12 @@ import android.text.TextUtils
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import com.indaco.hilttestproject.R
-import com.indaco.hilttestproject.core.hilt.viewmodel.ViewModelFactory
-import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
+import com.indaco.mylibrary.data.model.User
 import com.indaco.login.databinding.ActivityHiltLoginBinding
 import com.indaco.login.di.Injector
+import com.indaco.mylibrary.di.hilt.viewmodel.ViewModelFactory
 import com.indaco.mylibrary.ui.base.BaseActivity
+import com.indaco.mylibrary.util.BaseString
 import javax.inject.Inject
 
 /*
@@ -19,6 +19,7 @@ import javax.inject.Inject
  * + read values from Cache
  * + capture intent when going to another activity
  */
+typealias BaseR = com.indaco.mylibrary.R
 
 class HiltLoginActivity : BaseActivity<ActivityHiltLoginBinding>() {
 
@@ -63,8 +64,8 @@ class HiltLoginActivity : BaseActivity<ActivityHiltLoginBinding>() {
 
     private fun isEmailEntryValid(email: String?): Boolean {
         val error =  when {
-            email.isNullOrBlank() -> getString(R.string.error_email_blank)
-            email.isEmailInvalid() -> getString(R.string.error_email_not_email_pattern)
+            email.isNullOrBlank() -> getString(BaseString.error_email_blank)
+            email.isEmailInvalid() -> getString(BaseString.error_email_not_email_pattern)
             else ->  null
         }
         binding.emailLayout.error = error
@@ -77,10 +78,10 @@ class HiltLoginActivity : BaseActivity<ActivityHiltLoginBinding>() {
 
     private fun isPasswordValid(password: String?): Boolean {
         val error =  when {
-            password.isNullOrBlank() -> getString(R.string.error_password_blank)
-            password.length < MIN -> getString(R.string.error_password_short)
-            password.length > MAX -> getString(R.string.error_password_long)
-            password.any { !it.isLetterOrDigit() } -> getString(R.string.error_password_not_alphanumeric)
+            password.isNullOrBlank() -> getString(BaseString.error_password_blank)
+            password.length < MIN -> getString(BaseString.error_password_short)
+            password.length > MAX -> getString(BaseString.error_password_long)
+            password.any { !it.isLetterOrDigit() } -> getString(BaseString.error_password_not_alphanumeric)
             else ->  null
         }
         binding.passwordLayout.error = error
@@ -94,7 +95,8 @@ class HiltLoginActivity : BaseActivity<ActivityHiltLoginBinding>() {
     private fun observeData() {
         viewModel.loginResult.observe(this) {
             if (it != null)
-                goToMainScreen(it)
+                binding.result.text = it.email
+//                goToMainScreen(it)
             else
                 showError()
         }
@@ -102,12 +104,12 @@ class HiltLoginActivity : BaseActivity<ActivityHiltLoginBinding>() {
 
     private fun showError() {
         AlertDialog.Builder(this)
-            .setTitle(getString(R.string.error_title))
-            .setMessage(getString(R.string.user_not_found))
-            .setPositiveButton(getString(R.string.ok), null)
+            .setTitle(getString(BaseString.error_title))
+            .setMessage(getString(BaseString.user_not_found))
+            .setPositiveButton(getString(BaseString.ok), null)
             .show()
     }
 
-    private fun goToMainScreen(user: User) =
-        startActivity(Intent(this, WelcomeActivity::class.java).putExtra(User.KEY, user))
+//    private fun goToMainScreen(user: User) =
+//        startActivity(Intent(this, WelcomeActivity::class.java).putExtra(User.KEY, user))
 }

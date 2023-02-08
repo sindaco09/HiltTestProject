@@ -12,11 +12,11 @@ import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth
-import com.indaco.login.R
-import com.indaco.hilttestproject.R as AppR
-import com.indaco.testutils.hilt.lazyActivityScenarioRule
 import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
+import com.indaco.login.R
 import com.indaco.login.ui.screens.login.native_login.NativeLoginActivity
+import com.indaco.mylibrary.util.BaseString
+import com.indaco.testutils.hilt.lazyActivityScenarioRule
 import com.indaco.testutils.utils.Const.EMAIL_VALID
 import com.indaco.testutils.utils.Const.PASSWORD_VALID
 import org.junit.After
@@ -55,7 +55,7 @@ class NativeLoginActivityAndroidTest {
                 submit.performClick()
 
                 Truth.assertThat(passwordLayout.error.toString())
-                    .isEqualTo(it.getString(AppR.string.error_password_blank))
+                    .isEqualTo(it.getString(BaseString.error_password_blank))
             }
         }
     }
@@ -77,7 +77,7 @@ class NativeLoginActivityAndroidTest {
 
         // Check if AlertDialog popped up, this looks for a view with the string provided first
         // then checks if it is a dialog and that it is displayed. good for anonymous objects
-        onView(withText(AppR.string.user_not_found))
+        onView(withText(BaseString.user_not_found))
             .inRoot(isDialog())
             .check(matches(isDisplayed()))
 

@@ -2,8 +2,8 @@ package com.indaco.login.di
 
 import android.app.Activity
 import android.content.Context
-import com.indaco.hilttestproject.core.hilt.dependencies.AppDependencies
 import com.indaco.login.ui.screens.login.hilt_login.HiltLoginActivity
+import com.indaco.mylibrary.di.hilt.dependencies.AppDependencies
 import dagger.hilt.android.EntryPointAccessors
 
 object Injector {

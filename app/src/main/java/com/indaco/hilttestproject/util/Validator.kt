@@ -4,6 +4,7 @@ import android.text.TextUtils
 import android.util.Log
 import com.google.android.material.textfield.TextInputLayout
 import com.indaco.hilttestproject.R
+import com.indaco.mylibrary.util.BaseString
 
 object Validator {
 
@@ -23,8 +24,8 @@ object Validator {
         Log.d("TAG","isEmailEntryValid: $email")
 
         val message =  when {
-            email.isBlank() -> context.getString(R.string.error_email_blank)
-            email.isEmailInvalid() -> context.getString(R.string.error_email_not_email_pattern)
+            email.isBlank() -> context.getString(BaseString.error_email_blank)
+            email.isEmailInvalid() -> context.getString(BaseString.error_email_not_email_pattern)
             else ->  null
         }
         error = message
@@ -39,10 +40,10 @@ object Validator {
         Log.d("TAG","isPasswordValid: $password")
 
         val message =  when {
-            password.isBlank() -> context.getString(R.string.error_password_blank)
-            password.length < PASSWORD_MIN -> context.getString(R.string.error_password_short)
-            password.length > PASSWORD_MAX -> context.getString(R.string.error_password_long)
-            password.any { !it.isLetterOrDigit() } -> context.getString(R.string.error_password_not_alphanumeric)
+            password.isBlank() -> context.getString(BaseString.error_password_blank)
+            password.length < PASSWORD_MIN -> context.getString(BaseString.error_password_short)
+            password.length > PASSWORD_MAX -> context.getString(BaseString.error_password_long)
+            password.any { !it.isLetterOrDigit() } -> context.getString(BaseString.error_password_not_alphanumeric)
             else ->  null
         }
 
@@ -58,8 +59,8 @@ object Validator {
             true
         } else {
             error = when (type) {
-                Type.PASSWORD -> context.getString(R.string.error_passwords_dont_match)
-                Type.EMAIL -> context.getString(R.string.error_emails_dont_match)
+                Type.PASSWORD -> context.getString(BaseString.error_passwords_dont_match)
+                Type.EMAIL -> context.getString(BaseString.error_emails_dont_match)
             }
             false
         }

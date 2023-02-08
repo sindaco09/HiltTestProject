@@ -12,11 +12,12 @@ import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth
-import com.indaco.hilttestproject.core.hilt.modules.storage.components.DaoModule
-import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.data.storage.dao.UserDao
 import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
 import com.indaco.login.R
+import com.indaco.mylibrary.data.model.User
+import com.indaco.mylibrary.data.storage.dao.UserDao
+import com.indaco.mylibrary.di.hilt.modules.storage.components.DaoModule
+import com.indaco.mylibrary.util.BaseString
 import com.indaco.testutils.hilt.lazyActivityScenarioRule
 import com.indaco.testutils.utils.Const.EMAIL_INVALID
 import com.indaco.testutils.utils.Const.EMAIL_VALID
@@ -31,7 +32,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import com.indaco.hilttestproject.R as StringR
 
 /**
  * Uninstalling CacheModule doesn't work
@@ -83,7 +83,7 @@ class HiltLoginActivityAndroidTest {
                 submit.performClick()
 
                 Truth.assertThat(passwordLayout.error.toString())
-                    .isEqualTo(it.getString(StringR.string.error_password_blank))
+                    .isEqualTo(it.getString(BaseString.error_password_blank))
             }
         }
     }
@@ -107,7 +107,7 @@ class HiltLoginActivityAndroidTest {
 
         // Check if AlertDialog popped up, this looks for a view with the string provided first
         // then checks if it is a dialog and that it is displayed. good for anonymous objects
-        onView(withText(StringR.string.user_not_found))
+        onView(withText(BaseString.user_not_found))
             .inRoot(isDialog())
             .check(matches(isDisplayed()))
     }

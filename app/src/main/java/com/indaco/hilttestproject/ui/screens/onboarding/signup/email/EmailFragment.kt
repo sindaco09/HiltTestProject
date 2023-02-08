@@ -11,6 +11,7 @@ import com.indaco.mylibrary.ui.base.BaseFragment
 import com.indaco.hilttestproject.ui.screens.onboarding.signup.SignUpViewModel
 import com.indaco.hilttestproject.util.Validator
 import com.indaco.hilttestproject.util.Validator.inputIsValid
+import com.indaco.mylibrary.util.BaseString
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,7 +49,7 @@ class EmailFragment: com.indaco.mylibrary.ui.base.BaseFragment<FragmentEmailBind
 
     private fun showError(error: String) {
         AlertDialog.Builder(requireContext())
-            .setTitle(R.string.error_title)
+            .setTitle(BaseString.error_title)
             .setMessage(error)
             .show()
     }

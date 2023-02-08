@@ -1,7 +1,6 @@
 package com.indaco.hilttestproject.ui.screens.onboarding.signup.email
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.content.res.Resources
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
@@ -13,7 +12,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.filters.SmallTest
 import com.google.android.material.textfield.TextInputLayout
 import com.indaco.hilttestproject.HiltTestActivity
-import com.indaco.hilttestproject.data.storage.cache.UserCache
+import com.indaco.mylibrary.data.storage.cache.UserCache
 import com.indaco.testutils.hilt.launchFragmentInHiltContainer
 import com.indaco.testutils.utils.Const
 import dagger.hilt.android.testing.BindValue
@@ -27,8 +26,9 @@ import org.junit.Rule
 import org.junit.Test
 import kotlin.test.assertEquals
 import com.indaco.hilttestproject.R
-import com.indaco.hilttestproject.core.hilt.modules.storage.CacheModule
-import com.indaco.hilttestproject.data.model.User
+import com.indaco.mylibrary.di.hilt.modules.storage.CacheModule
+import com.indaco.mylibrary.data.model.User
+import com.indaco.mylibrary.util.BaseString
 
 @UninstallModules(CacheModule::class)
 @HiltAndroidTest
@@ -36,8 +36,8 @@ import com.indaco.hilttestproject.data.model.User
 class EmailAndroidTest {
 
     private val EMAIL_VALID_ENTRY = Pair(Const.EMAIL_VALID, null)
-    private val EMAIL_INVALID_ENTRY = Pair(Const.EMAIL_INVALID, R.string.error_email_not_email_pattern)
-    private val EMAIL_BLANK_ENTRY = Pair(Const.BLANK, R.string.error_email_blank)
+    private val EMAIL_INVALID_ENTRY = Pair(Const.EMAIL_INVALID, BaseString.error_email_not_email_pattern)
+    private val EMAIL_BLANK_ENTRY = Pair(Const.BLANK, BaseString.error_email_blank)
 
     // allows access to values in res folder
     val res: Resources = ApplicationProvider.getApplicationContext<Context>().resources
@@ -107,7 +107,7 @@ class EmailAndroidTest {
 
         // Checks that AlertDialog is displayed from function 'showError(error: String)'
         // for better test, know the exact error message
-        onView(ViewMatchers.withText(R.string.error_title))
+        onView(ViewMatchers.withText(BaseString.error_title))
             .inRoot(RootMatchers.isDialog())
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }

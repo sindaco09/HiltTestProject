@@ -4,10 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.indaco.hilttestproject.R
-import com.indaco.hilttestproject.data.model.User
+import com.indaco.mylibrary.data.model.User
 import com.indaco.hilttestproject.databinding.ActivityWelcomeBinding
-import com.indaco.hilttestproject.ui.screens.onboarding.landing.LandingActivity
+import com.indaco.hilttestproject.ui.screens.main.landing.LandingActivity
 import com.indaco.mylibrary.ui.base.BaseActivity
+import com.indaco.mylibrary.util.BaseString
 import dagger.hilt.android.AndroidEntryPoint
 
 /*
@@ -44,7 +45,7 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding>() {
     private fun setIntentData() {
         user = intent.getParcelableExtra(User.KEY)!!
 
-        val welcomeMessage = getString(R.string.welcome_message, user.email)
+        val welcomeMessage = getString(BaseString.welcome_message, user.email)
 
         binding.welcomeTitle.text = welcomeMessage
     }

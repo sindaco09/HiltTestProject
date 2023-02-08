@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+apply from: "${rootProject.projectDir}/flavors.gradle"
+
+android {
+    compileSdkVersion compile_version
+
+    defaultConfig {
+        applicationId "com.indaco.hilttestproject"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner = "com.indaco.testutils.hilt.HiltTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    with flavorConfig
+
+    flavorDimensions "default", "installtype"
+
+    productFlavors {
+        instant {
+            dimension "installtype"
+        }
+        installed {
+            dimension "installtype"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    dynamicFeatures = [':login']
+}
+
+dependencies {
+    api project (':mylibrary')
+
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+}

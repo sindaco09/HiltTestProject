@@ -5,17 +5,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.indaco.hilttestproject.R
-import com.indaco.hilttestproject.core.espresso.TestCountingIdlingResource
-import com.indaco.hilttestproject.data.model.AuthForm
-import com.indaco.hilttestproject.data.model.User
-import com.indaco.hilttestproject.data.repositories.UserRepository
+import com.indaco.mylibrary.di.espresso.TestCountingIdlingResource
+import com.indaco.mylibrary.data.model.AuthForm
+import com.indaco.mylibrary.data.model.User
+import com.indaco.mylibrary.data.repositories.UserRepository
+import com.indaco.mylibrary.util.BaseString
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -47,7 +46,7 @@ class SignUpViewModel @Inject constructor(
     }
 
     fun checkIfEmailInUse(email: String, res: Resources) {
-        val emailInUseError = res.getString(R.string.error_email_in_use)
+        val emailInUseError = res.getString(BaseString.error_email_in_use)
 
         TestCountingIdlingResource.countingIdlingResource.increment()
         viewModelScope.launch(dispatcher) {

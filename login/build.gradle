@@ -5,12 +5,33 @@ plugins {
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
 }
+apply from: "${rootProject.projectDir}/flavors.gradle"
+
 android {
-    compileSdk 32
+    compileSdkVersion compile_version
 
     defaultConfig {
-        minSdk 21
+        minSdkVersion min_sdk_version
         testInstrumentationRunner = "com.indaco.testutils.hilt.HiltTestRunner"
+    }
+
+    with flavorConfig
+
+    flavorDimensions "default","installtype"
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        instant {
+            dimension "installtype"
+        }
+        installed {
+            dimension "installtype"
+        }
     }
 
     buildFeatures {
@@ -35,16 +56,10 @@ android {
 }
 
 dependencies {
-    implementation project(":app")
     androidTestImplementation project(":testutils")
 
-    // Core - Uncategorized
-    implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
-    implementation "androidx.core:core-ktx:$ktx_version"
-    implementation "androidx.fragment:fragment-ktx:$fragment_version"
-    implementation "com.google.android.material:material:$google_material_version"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    installedImplementation project(':app')
+    instantImplementation project(':instantapp')
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
