@@ -1,4 +1,4 @@
-package com.indaco.login.ui.screens.login.nativ_login
+package login.nativ_login
 
 import android.content.Intent
 import androidx.test.core.app.ApplicationProvider

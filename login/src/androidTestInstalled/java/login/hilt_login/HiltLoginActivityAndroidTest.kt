@@ -1,4 +1,4 @@
-package com.indaco.login.ui.screens.login.hilt_login
+package login.hilt_login
 
 import android.content.Intent
 import androidx.test.core.app.ApplicationProvider
@@ -14,6 +14,7 @@ import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth
 import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
 import com.indaco.login.R
+import com.indaco.login.ui.screens.login.hilt_login.HiltLoginActivity
 import com.indaco.mylibrary.data.model.User
 import com.indaco.mylibrary.data.storage.dao.UserDao
 import com.indaco.mylibrary.di.hilt.modules.storage.components.DaoModule
