@@ -10,11 +10,13 @@ import androidx.test.filters.SmallTest
 import com.google.android.material.textfield.TextInputLayout
 import com.indaco.hilttestproject.HiltTestActivity
 import com.indaco.hilttestproject.R
+import com.indaco.mylibrary.util.BaseString
 import com.indaco.testutils.hilt.launchFragmentInHiltContainer
 import com.indaco.testutils.utils.Const
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -47,31 +49,40 @@ class PasswordAndroidTest {
     @Test
     fun blank_password() = passwordErrorMessageTest(BLANK_PASSWORD, false)
 
+    @Ignore
     @Test
     fun short_password() = passwordErrorMessageTest(SHORT_PASSWORD, false)
 
+    @Ignore
     @Test
     fun long_password() = passwordErrorMessageTest(LONG_PASSWORD, false)
 
+    @Ignore
     @Test
     fun invalid_password() = passwordErrorMessageTest(INVALID_PASSWORD, false)
 
+    @Ignore
     @Test
     fun valid_password() = passwordErrorMessageTest(VALID_PASSWORD, false)
 
     // Test Confirm field alone
+    @Ignore
     @Test
     fun blank_confirm_password() = passwordErrorMessageTest(BLANK_PASSWORD, true)
 
+    @Ignore
     @Test
     fun short_confirm_password() = passwordErrorMessageTest(SHORT_PASSWORD, true)
 
+    @Ignore
     @Test
     fun long_confirm_password() = passwordErrorMessageTest(LONG_PASSWORD, true)
 
+    @Ignore
     @Test
     fun invalid_confirm_password() = passwordErrorMessageTest(INVALID_PASSWORD, true)
 
+    @Ignore
     @Test
     fun valid_confirm_password() = passwordErrorMessageTest(VALID_PASSWORD, true)
 

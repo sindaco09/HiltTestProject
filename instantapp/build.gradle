@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
@@ -51,11 +52,19 @@ android {
         viewBinding true
     }
 
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+
     dynamicFeatures = [':login']
 }
 
 dependencies {
     api project (':mylibrary')
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:31.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"

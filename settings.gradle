@@ -14,7 +14,8 @@ pluginManagement {
 //}
 rootProject.name = "HiltTestProject"
 include ':app'
-include ':testutils'
+include ':testutils_androidtest'
 include ':login'
 include ':mylibrary'
 include ':instantapp'
+include ':testutils_test'

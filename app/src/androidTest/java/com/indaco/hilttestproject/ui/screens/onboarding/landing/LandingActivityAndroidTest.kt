@@ -12,6 +12,7 @@ import com.indaco.mylibrary.di.hilt.modules.storage.CacheModule
 import com.indaco.mylibrary.data.model.User
 import com.indaco.mylibrary.data.storage.cache.UserCache
 import com.indaco.hilttestproject.ui.screens.onboarding.welcome.WelcomeActivity
+import com.indaco.mylibrary.util.BaseString
 import com.indaco.testutils.hilt.lazyActivityScenarioRule
 import com.indaco.testutils.utils.Const.EMAIL_VALID
 import dagger.hilt.android.testing.BindValue

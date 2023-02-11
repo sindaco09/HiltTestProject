@@ -14,7 +14,8 @@
             <option value="$PROJECT_DIR$/instantapp" />
             <option value="$PROJECT_DIR$/login" />
             <option value="$PROJECT_DIR$/mylibrary" />
-            <option value="$PROJECT_DIR$/testutils" />
+            <option value="$PROJECT_DIR$/testutils_androidtest" />
+            <option value="$PROJECT_DIR$/testutils_test" />
           </set>
         </option>
       </GradleProjectSettings>
