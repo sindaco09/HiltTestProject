@@ -66,6 +66,7 @@ class LandingActivityAndroidTest {
         Intents.release()
     }
 
+
     @Test
     fun test_value_true() {
         launchHiltActivityWithMocks { every { mockUserCache.testValue } returns true }

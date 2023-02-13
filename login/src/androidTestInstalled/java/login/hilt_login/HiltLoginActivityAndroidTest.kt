@@ -38,16 +38,16 @@ import org.junit.Test
  * Uninstalling CacheModule doesn't work
  * can i only uninstall modules in the appDependencies component?
  */
-@UninstallModules(DaoModule::class)
+//@UninstallModules(DaoModule::class)
 @HiltAndroidTest
 @SmallTest
 class HiltLoginActivityAndroidTest {
 
-    private val intent = Intent(ApplicationProvider.getApplicationContext(), HiltLoginActivity::class.java)
+    private val intent get() = Intent(ApplicationProvider.getApplicationContext(), HiltLoginActivity::class.java)
 
-    @BindValue
-    @JvmField
-    var userDao: UserDao = mockk(relaxed = true)
+//    @BindValue
+//    @JvmField
+//    var userDao: UserDao = mockk(relaxed = true)
 
     @get: Rule(order = 0)
     val hiltRule = HiltAndroidRule(this)
@@ -95,7 +95,7 @@ class HiltLoginActivityAndroidTest {
     @Test
     fun invalid_login_credentials() {
         launchHiltActivityWithMocks {
-            every { userDao.getUser(EMAIL_INVALID) } returns null
+//            every { userDao.getUser(EMAIL_INVALID) } returns null
         }
 
         // setup test
@@ -116,7 +116,7 @@ class HiltLoginActivityAndroidTest {
     @Test
     fun valid_login_credentials() {
         launchHiltActivityWithMocks {
-            every { userDao.getUser(EMAIL_VALID) } returns User(EMAIL_VALID)
+//            every { userDao.getUser(EMAIL_VALID) } returns User(EMAIL_VALID)
         }
 
         // setup test

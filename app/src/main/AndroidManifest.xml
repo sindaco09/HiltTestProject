@@ -4,6 +4,9 @@
     package="com.indaco.hilttestproject"
     android:targetSandboxVersion="2">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <dist:module dist:instant="true" />
 
     <application
@@ -25,6 +28,13 @@
         <activity android:name=".ui.screens.onboarding.login.LoginActivity" />
         <activity android:name=".ui.screens.onboarding.welcome.WelcomeActivity" />
         <activity android:name=".ui.screens.main.landing.LandingActivity" />
+
+        <meta-data
+            android:name="screenCaptureProcessors"
+            android:value="com.google.firebase.testlab.screenshot.FirebaseScreenCaptureProcessor" />
     </application>
 
+    <instrumentation
+        android:name="com.indaco.testutils.hilt.HiltTestRunner"
+        android:targetPackage="com.indaco.hilttestproject" />
 </manifest>

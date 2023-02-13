@@ -11,6 +11,7 @@ import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.SmallTest
+import androidx.test.runner.screenshot.Screenshot
 import com.google.common.truth.Truth
 import com.indaco.hilttestproject.R
 import com.indaco.mylibrary.di.hilt.modules.storage.CacheModule
@@ -107,6 +108,14 @@ class LoginActivityAndroidTest {
 
     }
 
+    /**
+     * gcloud firebase test android run
+     * --type instrumentation
+     * --app C:\Users\indac\AndroidStudioProjects\HiltTestProject\app\build\outputs\apk\devInstalled\debug\app-dev-installed-debug.apk
+     * --test C:\Users\indac\AndroidStudioProjects\HiltTestProject\app\build\outputs\apk\androidTest\devInstalled\debug\app-dev-installed-debug-androidTest.apk
+     * --test-targets "class com.indaco.hilttestproject.ui.screens.onboarding.login.LoginActivityAndroidTest#valid_login_credentials"
+     * --device model=Pixel3
+     */
     @Test
     fun valid_login_credentials() {
         launchHiltActivityWithMocks { every { mockUserCache.getUser(EMAIL_VALID) } returns User(EMAIL_VALID) }
@@ -118,6 +127,9 @@ class LoginActivityAndroidTest {
             .perform(typeText(PASSWORD_VALID))
         onView(withId(R.id.submit))
             .perform(click())
+
+        
+        Screenshot.capture().process()
 
         // Check that WelcomeActivity is started
         Intents.intended(IntentMatchers.hasComponent(WelcomeActivity::class.java.name))
